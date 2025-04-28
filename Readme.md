@@ -1,6 +1,6 @@
 # MC - Solo 1 Cuadro
 
-´´´
+```
 Sub Enviar_Correo_Desde_Excel()
     Dim OutlookApp As Object
     Dim OutlookMail As Object
@@ -8,7 +8,7 @@ Sub Enviar_Correo_Desde_Excel()
     Dim cuerpoCorreo As String
     Dim destinatario As String
     Dim asunto As String
-    
+
     Dim datos As String
     Dim mensaje As String
     
@@ -34,7 +34,6 @@ Sub Enviar_Correo_Desde_Excel()
     Set OutlookMail = Nothing
     Set OutlookApp = Nothing
 End Sub
-
 
 Function RangoaTextoHTML(rango As Range, datos As String) As String
     Dim textoHTML As String
@@ -84,11 +83,10 @@ Function RangoaTextoHTML(rango As Range, datos As String) As String
     textoHTML = textoHTML & "</table>"
     RangoaTextoHTML = textoHTML
 End Function
-´´´
-
+```
 
 # MC - Multiples Cuadros
-´´´
+```
 Sub Enviar_Correo_Desde_Excel()
     Dim OutlookApp As Object
     Dim OutlookMail As Object
@@ -125,7 +123,6 @@ Sub Enviar_Correo_Desde_Excel()
     Set OutlookMail = Nothing
     Set OutlookApp = Nothing
 End Sub
-
 
 Function RangoaTextoHTML(datos As String, prioridad As String) As String
     Dim textoHTML As String
@@ -172,4 +169,4 @@ Function RangoaTextoHTML(datos As String, prioridad As String) As String
     textoHTML = textoHTML & "</table>"
     RangoaTextoHTML = textoHTML
 End Function
-´´´
+```
