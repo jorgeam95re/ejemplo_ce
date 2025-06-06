@@ -6,7 +6,7 @@ document.addEventListener('keydown', async function(event) {
             
             const palabrasClave = ['TELEFONO', 'DPI', 'LUGAR', 'FECHA', 'EMPRESA'];
             const nombres = texto
-              .split(/\r?\n|\t/) // divide por saltos de línea y tabulaciones
+              .split(/\r?\n|\t/)
               .map(line => line.trim())
               .filter(line => {
                 const palabras = line.match(/\b[A-ZÁÉÍÓÚÑa-záéíóúñ]{3,}\b/g);
@@ -20,12 +20,12 @@ document.addEventListener('keydown', async function(event) {
               .map(m => m.replace(/\s+/g, ''))
               .filter(m => m.length === 8);
 
-            const regide = texto.match(/\b\d(?:\s*\d){12}\b/g) || [];
+            const regide = texto.match(/\b\d(?:\s*\d){11,12}\b/g) || [];
             const ide = regide
-              .map(m => m.replace(/\s+/g, '')) 
-              .filter(m => m.length === 13);    
+              .map(m => m.replace(/\s+/g, ''))  
+              .filter(m => m.length === 12 || m.length === 13);   
 
-            const contrata = texto.match(/\b(IIFGO|EMCO|OFG|CECOR)\b/g);
+                const contrata = texto.match(/\b(IIFGO|EMCO|OFG|CECOR)\b/gi);
 
             console.log(nombres);
             console.log(numeros);
