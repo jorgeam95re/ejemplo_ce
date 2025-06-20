@@ -9,7 +9,7 @@ document.addEventListener('keydown', async function(event) {
               .split(/\r?\n|\t/)
               .map(line => line.trim())
               .filter(line => {
-                const palabras = line.match(/\b[A-ZÁÉÍÓÚÑa-záéíóúñ]{3,}\b/g);
+                const palabras = line.match(/(?<![@\w])\b[A-ZÁÉÍÓÚÑa-záéíóúñ]{3,}\b(?!\.\w)/g);
                 if (!palabras || palabras.length < 3) return false;
                 const primeraPalabra = palabras[0].toUpperCase();
                 return !palabrasClave.includes(primeraPalabra);
@@ -25,13 +25,13 @@ document.addEventListener('keydown', async function(event) {
               .map(m => m.replace(/\s+/g, ''))  
               .filter(m => m.length === 12 || m.length === 13);   
 
-                const contrata = texto.match(/\b(IIFGO|EMCO|OFG|CECOR)\b/gi);
+            const contrata = texto.match(/(?<![@\w])\b(IIFGO|OOKI|PIPO|MEGA)\b(?!\.\w)/gi);
 
             console.log(nombres);
             console.log(numeros);
             console.log(ide);
             console.log(contrata);
-            
+
             return texto
         } catch (err) {
             console.log("Error al leer del portapapeles " + err);
